@@ -10,22 +10,25 @@ app.use(express.static('public'));
 app.set("view engine", "ejs");
 app.set("views", __dirname + "/views");
 app.set("view option", { layout: false })
+app.use("/static", express.static("public"))
 
 
 app.get('/', (req, res) => {
-    const data = fs.readFile('book.json', (err, data) => {
+    fs.readFile('book.json', (err, data) => {
         if (err) {
             throw err;
         } else {
-            const booksA = JSON.parse(data)
-            // console.log(data);
-            const Book = booksA.books
-            // console.log(Book);
-            const titles = Book.map(e => e.title)
-            // res.send(titles)
-            const isbn = Book.map(e => e.isbn)
-            console.log(Book);
-            res.render('index', { sda: Book })
+            const obj = JSON.parse(data)
+            const title = obj.books.map((e) => e.title)
+            const allElements = []
+            for (let i = 0; allElements.length <= 2; i++) {
+                const randomBooks = title[Math.floor(Math.random() * title.length)]
+                allElements.push(randomBooks)
+            }
+
+
+
+            res.render('index', { data: allElements })
         }
     })
 })
