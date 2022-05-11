@@ -25,13 +25,17 @@ app.get('/', (req, res) => {
                 const randomBooks = title[Math.floor(Math.random() * title.length)]
                 allElements.push(randomBooks)
             }
-
-
-
             res.render('index', { data: allElements })
         }
     })
 })
+
+
+
+
+
+
+
 
 app.listen(3000)
 console.log(`'app is cominig ' at ${port}`)

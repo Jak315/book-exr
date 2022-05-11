@@ -13,8 +13,28 @@
     <title>Document</title>
   </head>
   <body>
-    <div class=""><%=data[0]%></div>
-    <div><%=data[1]%></div>
-    <div><%=data[2]%></div>
+    <div class="ms-5 me-5">
+      <div class="text-center mt-5 mb-5">
+        <h1>LIBRARY</h1>
+      </div>
+      <div class="d-flex wrap-flex justify-content-between">
+        <div class="">
+          <h3 class="fs-3"><%=data[0]%></h3>
+          <p>ISBN:</p>
+          <button
+            type=""
+            class="d-flex rounded-pill bg-danger justify-content-end"
+          >
+            Delete
+          </button>
+        </div>
+        <div>
+          <h3 class="fs-3"><%=data[1]%></h3>
+        </div>
+        <div>
+          <h3 class="fs-3"><%=data[2]%></h3>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
